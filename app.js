@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var esiMiddleware = require('nodesi').middleware;
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var plpRouter = require('./routes/plp');
+var pdpRouter = require('./routes/pdp');
 
 var app = express();
 
@@ -19,8 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(esiMiddleware());
+
+app.use('/', indexRouter); // home page
+app.use('/plp/:id', plpRouter); // product listing
+app.use('/pdp/:id', pdpRouter); // product details
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

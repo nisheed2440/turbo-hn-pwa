@@ -2,6 +2,6 @@ import { Controller } from 'stimulus';
 
 export default class extends Controller {
 	connect() {
-		this.element.textContent = 'Default Controller initialized!';
+		this.element.textContent = `Default Controller initialized for ${this.element.dataset.controller}`;
 	}
 }

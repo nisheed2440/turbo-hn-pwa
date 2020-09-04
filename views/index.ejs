@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><%= pageTitle %></title>
+		<title><%- title %> </title>
 		<link rel="stylesheet" href="dist/init.css" />
 		<script>
 			window.scriptsPath = '/dist/';
@@ -18,6 +18,6 @@
 		<script src="/dist/init.js" defer></script>
 	</head>
 	<body>
-		<div id="root" class="root"></div>
+        <%- pageData %>
 	</body>
 </html>

@@ -2,8 +2,6 @@ import "../styles/app.scss";
 
 const getController = (controller) => {
 	switch (controller) {
-		case 'navController':
-			return import('./controllers/NavController');
 		default:
 			return import('./controllers/DefaultController');
 	}
@@ -40,8 +38,3 @@ const loadControllers = async () => {
 };
 // With Turbolinks
 document.addEventListener('turbolinks:load', loadControllers);
-
-// Without Turbolinks
-// $(document).ready(async () => {
-// 	await loadControllers();
-// });
