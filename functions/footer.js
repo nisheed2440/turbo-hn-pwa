@@ -3,7 +3,7 @@ const { client } = require('./utils/contentful');
 const headers = require('./utils/headers');
 
 const footerTemplate = ejs.compile(`
-<footer class="footer mt-auto py-3">
+<footer data-turbolinks-permanent class="footer mt-auto py-3">
     <div class="container">
     <span class="text-muted"><%- footerText %></span>
     </div>

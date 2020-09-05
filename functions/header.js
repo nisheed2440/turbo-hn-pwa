@@ -38,8 +38,8 @@ const parsedSubNavData = (data) => {
 };
 
 const navTemplate = ejs.compile(`
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a data-turbolinks-permanent class="navbar-brand mr-0 mr-md-2" href="<%- url %>">
+<nav data-turbolinks-permanent class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mr-0 mr-md-2" href="<%- url %>">
         <img width="60" src="<%- logoUrl %>" alt="<%- brandLabel %>"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
