@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { Application } from "stimulus";
 import Turbolinks from "turbolinks";
 Turbolinks.start();

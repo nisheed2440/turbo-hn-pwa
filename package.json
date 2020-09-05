@@ -4,16 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "webpack"
+    "build": "webpack",
+    "n:build": "netlify-lambda build functions",
+    "n:serve": "netlify-lambda serve functions"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.1",
     "babel-polyfill": "^6.26.0",
+    "contentful": "^7.14.6",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "~2.6.1",
+    "ejs": "^3.1.5",
     "express": "~4.16.1",
+    "faker": "^5.1.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "netlify-lambda": "^2.0.1",
     "nodesi": "^1.15.0",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0"
