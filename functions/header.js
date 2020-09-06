@@ -42,14 +42,12 @@ const navTemplate = ejs.compile(`
     <a class="navbar-brand mr-0 mr-md-2" href="<%- url %>">
         <img width="60" src="<%- logoUrl %>" alt="<%- brandLabel %>"/>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <esi:include src="http://localhost:9000/mini-cart" />
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <% navData.forEach(function(data){ %>     
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="<%- data.id %>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<%- data.url %>"><%- data.label %></a>
+                    <a class="nav-link dropdown-toggle" id="<%- data.id %>" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><%- data.label %></a>
                     <div class="dropdown-menu" aria-labelledby="<%- data.id %>">
                         <% data.navData.forEach(function(subNavData){ %>  
                             <a class="dropdown-item" href="<%- subNavData.url %>"><%- subNavData.label %></a>

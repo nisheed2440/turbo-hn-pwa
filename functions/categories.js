@@ -14,7 +14,7 @@ const categoryTemplate = ejs.compile(`
                     <p class="card-text"><%- item.description %></p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                            <a href="<%- item.url %>" class="btn btn-sm btn-outline-secondary">View</a>
+                            <a href="/plp/<%- item.id %>" class="btn btn-sm btn-outline-secondary">View</a>
                         </div>
                     </div>
                     </div>
@@ -32,8 +32,10 @@ const categoryTemplate = ejs.compile(`
 const parsedCategoryData = (data) => {
 	return {
 		items: data.items.map((item) => {
+            const { id } = item.sys;
 			const { description, ...rest } = item.fields;
 			return {
+                id,
 				...rest,
 				description: documentToHtmlString(description),
 			};
@@ -45,7 +47,7 @@ exports.handler = async function (event, context) {
 	try {
 		const data = await client.getEntries({
 			content_type: 'navLink',
-		});
+        });
 		return {
 			headers,
 			statusCode: 200,

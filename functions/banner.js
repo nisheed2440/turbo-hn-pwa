@@ -25,7 +25,6 @@ exports.handler = async function (event, context, callback) {
             content_type: 'banner',
             'sys.id': bannerId,
         });
-        console.log(data);
 		return {
 			statusCode: 200,
 			headers,

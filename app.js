@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(esiMiddleware());
 
 app.use('/', indexRouter); // home page
-app.use('/plp/:id', plpRouter); // product listing
+app.use('/plp', plpRouter); // product listing
 app.use('/pdp/:id', pdpRouter); // product details
 
 // catch 404 and forward to error handler
