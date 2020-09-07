@@ -10,8 +10,9 @@ const miniCartTemplate = ejs.compile(`
 `);
 
 exports.handler = async function (event, context) {
+    console.log(process.env.BASE_URL);
 	try {
-        const response = await axios.get('http://localhost:9000/add-to-cart');
+        const response = await axios.get(`${process.env.BASE_URL}/add-to-cart`);
 		return {
 			headers,
 			statusCode: 200,
