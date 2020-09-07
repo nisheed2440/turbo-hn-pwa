@@ -13,6 +13,7 @@ exports.handler = async function (event, context) {
     console.log(process.env.BASE_URL);
 	try {
         const response = await axios.get(`${process.env.BASE_URL}/add-to-cart`);
+        console.log(miniCartTemplate(response.data));
 		return {
 			headers,
 			statusCode: 200,

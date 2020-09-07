@@ -5,7 +5,8 @@ const headers = require('./utils/headers');
 
 // Instance of the ESI class
 const esi = new ESI({
-    baseUrl: process.env.BASE_URL
+    baseUrl: process.env.BASE_URL,
+    cache: false,
 });
 
 /**

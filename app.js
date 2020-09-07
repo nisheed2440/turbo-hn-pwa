@@ -21,7 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(esiMiddleware());
+app.use(esiMiddleware({
+  cache: false,
+}));
 
 app.use('/', indexRouter); // home page
 app.use('/plp', plpRouter); // product listing
