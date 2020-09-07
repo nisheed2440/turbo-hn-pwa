@@ -1,6 +1,12 @@
 const ejs = require('ejs');
+const ESI = require('nodesi');
 const { client } = require('./utils/contentful');
 const headers = require('./utils/headers');
+
+// Instance of the ESI class
+const esi = new ESI({
+    baseUrl: process.env.BASE_URL
+});
 
 /**
  * Nav Data
@@ -42,7 +48,7 @@ const navTemplate = ejs.compile(`
     <a class="navbar-brand mr-0 mr-md-2" href="<%- url %>">
         <img width="60" src="<%- logoUrl %>" alt="<%- brandLabel %>"/>
     </a>
-    <esi:include src="http://localhost:9000/mini-cart" />
+    <esi:include src="/mini-cart" />
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <% navData.forEach(function(data){ %>     
@@ -66,11 +72,12 @@ exports.handler = async function (event, context) {
 			content_type: 'mainNavigation',
 			include: 5,
 		});
-		const navData = parseNavData(data);
+        const navData = parseNavData(data);
+        const esiData = await esi.process(navTemplate(navData));
 		return {
 			statusCode: 200,
 			headers,
-			body: navTemplate(navData),
+			body: esiData,
 		};
 	} catch (e) {
 		return {

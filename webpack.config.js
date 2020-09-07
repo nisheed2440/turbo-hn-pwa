@@ -3,6 +3,7 @@ const WebpackRequireFrom = require('webpack-require-from');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: {
@@ -47,5 +48,8 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin(),
+		new webpack.DefinePlugin({
+			'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL),
+		}),
 	],
 };

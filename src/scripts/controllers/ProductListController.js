@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class extends Controller {
     addToCart = (e) => {
         const sku = $(e.target).data('sku');
-        axios.post('http://localhost:9000/add-to-cart', {
+        axios.post(`${process.env.BASE_URL}/add-to-cart`, {
             sku,
         }).then((res) => {
             $('#mini-cart-count').text(res.data.count);
