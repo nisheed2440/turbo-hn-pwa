@@ -8,6 +8,7 @@ var esiMiddleware = require('nodesi').middleware;
 var indexRouter = require('./routes/index');
 var plpRouter = require('./routes/plp');
 var pdpRouter = require('./routes/pdp');
+var cartRouter = require('./routes/cart');
 
 var app = express();
 
@@ -27,7 +28,8 @@ app.use(esiMiddleware({
 
 app.use('/', indexRouter); // home page
 app.use('/plp', plpRouter); // product listing
-app.use('/pdp/:id', pdpRouter); // product details
+app.use('/pdp', pdpRouter); // product details
+app.use('/cart', cartRouter); // cart details
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

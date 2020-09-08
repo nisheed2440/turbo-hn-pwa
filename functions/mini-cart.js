@@ -4,9 +4,9 @@ const { client } = require('./utils/contentful');
 const headers = require('./utils/headers');
 
 const miniCartTemplate = ejs.compile(`
-<button type="button" class="btn btn-primary">
+<a href="/cart" class="btn btn-primary">
     Cart <span id="mini-cart-count" class="badge badge-light"><%- count %></span>
-</button>
+</a>
 `);
 
 exports.handler = async function (event, context) {

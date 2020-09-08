@@ -2,9 +2,12 @@ import "../styles/app.scss";
 
 const getController = (controller) => {
 	switch (controller) {
+		case 'cart':
+			return import('./controllers/CartController');
+		case 'pdp':
+			return import('./controllers/PDPController');
 		case 'plp':
 			return import('./controllers/ProductListController');
-			break;
 		default:
 			return import('./controllers/DefaultController');
 	}

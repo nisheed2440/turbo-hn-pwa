@@ -9,7 +9,7 @@ const getCartCount = (crtObj) => {
     return count;
 };
 
-const setCartCount = (data, crtObj) => {
+const setCartData = (data, crtObj) => {
     if(crtObj[data.sku]) {
         crtObj[data.sku] += 1;
     } else {
@@ -17,11 +17,21 @@ const setCartCount = (data, crtObj) => {
     }
     return crtObj;
 };
+const removeCartData = (data, crtObj) => {
+    if(crtObj[data.sku]) {
+       delete crtObj[data.sku];
+    }
+    return crtObj;
+};
 
 exports.handler = function (event, context, callback) {
     if(event.httpMethod === 'POST') {
         const data = JSON.parse(event.body);
-        setCartCount(data, cartObj);
+        if(data.type === 'remove') {
+            removeCartData(data, cartObj);
+        } else {
+            setCartData(data, cartObj);
+        }
     }
     const count = getCartCount(cartObj);
 	callback(null, {
