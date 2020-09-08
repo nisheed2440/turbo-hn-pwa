@@ -3,8 +3,6 @@ const ESI = require('nodesi');
 const { client } = require('./utils/contentful');
 const headers = require('./utils/headers');
 
-console.log(process.env.BASE_URL);
-
 // Instance of the ESI class
 const esi = new ESI({
     baseUrl: process.env.BASE_URL,
@@ -73,6 +71,7 @@ const navTemplate = ejs.compile(`
 `);
 
 exports.handler = async function (event, context) {
+    console.log(process.env.BASE_URL);
 	try {
 		const data = await client.getEntries({
 			content_type: 'mainNavigation',
