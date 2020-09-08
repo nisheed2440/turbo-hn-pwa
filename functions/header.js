@@ -5,7 +5,6 @@ const headers = require('./utils/headers');
 
 // Instance of the ESI class
 const esi = new ESI({
-    baseUrl: process.env.BASE_URL,
     cache: false,
 });
 
@@ -49,7 +48,7 @@ const navTemplate = ejs.compile(`
     <a class="navbar-brand mr-0 mr-md-2" href="<%- url %>">
         <img width="60" src="<%- logoUrl %>" alt="<%- brandLabel %>"/>
     </a>
-    <esi:include src="/mini-cart" />
+    <esi:include src="${process.env.BASE_URL}/mini-cart" />
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,7 +70,6 @@ const navTemplate = ejs.compile(`
 `);
 
 exports.handler = async function (event, context) {
-    console.log(process.env.BASE_URL);
 	try {
 		const data = await client.getEntries({
 			content_type: 'mainNavigation',
