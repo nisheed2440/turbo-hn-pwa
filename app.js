@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var esiMiddleware = require('nodesi').middleware;
+var compression = require('compression');
 
 var indexRouter = require('./routes/index');
 var plpRouter = require('./routes/plp');
@@ -11,6 +12,9 @@ var pdpRouter = require('./routes/pdp');
 var cartRouter = require('./routes/cart');
 
 var app = express();
+
+// compress all responses
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

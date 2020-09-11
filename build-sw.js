@@ -9,7 +9,7 @@ generateSW({
     runtimeCaching: [
         {
             urlPattern: new RegExp(/\/*/),
-            handler: 'NetworkFirst'
+            handler: 'NetworkFirst',
         }
     ],
 	// Other configuration options...
