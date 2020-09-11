@@ -105,3 +105,6 @@ dist
 
 # Lamda
 lambda/
+
+public/sw.*
+public/workbox*

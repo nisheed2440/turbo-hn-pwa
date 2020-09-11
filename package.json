@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run build && node ./bin/www",
+    "start": "npm run build && node build-sw.js && node ./bin/www",
     "build": "webpack",
     "n:build": "netlify-lambda build functions",
     "n:serve": "netlify-lambda serve functions"
@@ -41,6 +41,8 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-require-from": "^1.8.1"
+    "webpack-require-from": "^1.8.1",
+    "workbox-build": "^5.1.4",
+    "workbox-webpack-plugin": "^5.1.4"
   }
 }

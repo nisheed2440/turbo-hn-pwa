@@ -1,4 +1,5 @@
 const path = require('path');
+// const { GenerateSW } = require('workbox-webpack-plugin');
 const WebpackRequireFrom = require('webpack-require-from');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -51,5 +52,15 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL),
 		}),
+		// new GenerateSW({
+		// 	importsDirectory: 'dist',
+		// 	swDest: '../sw.js',
+		// 	clientsClaim: true,
+		// 	skipWaiting: true,
+		// 	runtimeCaching: [{
+		// 		urlPattern: new RegExp(/\/*/),
+		// 		handler: 'NetworkFirst'
+		// 	}]
+		// }),
 	],
 };
